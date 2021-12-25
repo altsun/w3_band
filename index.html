@@ -307,7 +307,6 @@
     var headerHeight = header.clientHeight;
 
     // Open, close mobile menu
-    // TODO: init isClosed = true, instead of comparision with height
     mobileMenu.onclick = function () {
       var isClosed = header.clientHeight === headerHeight;
       if (isClosed) {
@@ -321,8 +320,16 @@
     var menuItems = document.querySelectorAll("#nav li a[href*='#']");
     for (var i = 0; i < menuItems.length; i++) {
       var menuItem = menuItems[i];
+
       menuItem.onclick = function () {
-        header.style.height = null;
+        var isParentMenu =
+          this.nextElementSibling &&
+          this.nextElementSibling.classList.contains("subnav");
+        if (isParentMenu) {
+          event.preventDefault();
+        } else {
+          header.style.height = null;
+        }
       };
     }
   </script>

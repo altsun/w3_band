@@ -92,7 +92,6 @@ html {
   z-index: 1;
   height: 46px;
   background-color: #000;
-  overflow: hidden;
 }
 
 #nav {
@@ -158,6 +157,13 @@ html {
 
 #nav .nav-arrow-down {
   font-size: 14px;
+}
+
+#header .mobile-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
 }
 
 #header .search-btn,
